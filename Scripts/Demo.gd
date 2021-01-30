@@ -16,7 +16,8 @@ func _ready():
 	camera_y = camera.translation.y
 	
 func _physics_process(delta):
-	camera.translation = Vector3(ball.translation.x, max(camera_y, ball.translation.y + 20), ball.translation.z)
+	camera.translation = Vector3(ball.translation.x - 5, max(camera_y, ball.translation.y + 20), ball.translation.z)
+	camera.rotation_degrees.z = 60
 	
 func _build_maze(cell_size: float, offset: float) -> void:
 	var maze = $MazeGenerator.generate_maze()
