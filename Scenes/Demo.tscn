@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Demo.gd" type="Script" id=1]
 [ext_resource path="res://src/Maze Generator.gd" type="Script" id=2]
 [ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/SOUL.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -44,3 +45,6 @@ SPACE - Jump"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="SOUL" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.357993, 0, 0.933724, 0, 1, 0, -0.933724, 0, 0.357993, -0.351674, 2.34987, 1.25409 )
