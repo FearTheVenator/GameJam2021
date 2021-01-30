@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/ghost.glb-9f25a3582bd137e289220ac871ae48af.scn"
+path="res://.import/flashlight.glb-72a08155b43a5fd244d1acab59663260.scn"
 
 [deps]
 
-source_file="res://models and materials/ghost/ghost.glb"
-dest_files=[ "res://.import/ghost.glb-9f25a3582bd137e289220ac871ae48af.scn" ]
+source_file="res://models and materials/Flashlight/flashlight.glb"
+dest_files=[ "res://.import/flashlight.glb-72a08155b43a5fd244d1acab59663260.scn" ]
 
 [params]
 
