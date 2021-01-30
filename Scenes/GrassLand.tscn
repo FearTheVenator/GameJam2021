@@ -11,7 +11,7 @@ albedo_color = Color( 0.492737, 0.914063, 0.509195, 1 )
 
 [node name="Main" type="Spatial"]
 
-[node name="Floor" type="RigidBody" parent="."]
+[node name="Floor" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0 )

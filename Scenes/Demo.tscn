@@ -30,3 +30,5 @@ environment = SubResource( 1 )
 
 [node name="SOUL" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.997062, 0, 0.076597, 0, 1, 0, -0.076597, 0, -0.997062, -0.351674, 4.58167, 7.83668 )
+
+[node name="Camera" type="Camera" parent="."]
