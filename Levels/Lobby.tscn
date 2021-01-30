@@ -1,0 +1,21 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ButtonHost" type="Button" parent="."]
+margin_right = 195.0
+margin_bottom = 38.0
+text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonJoin" type="Button" parent="."]
+margin_left = -0.594604
+margin_top = 61.8388
+margin_right = 194.405
+margin_bottom = 99.8388
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
