@@ -15,6 +15,11 @@ func _ready():
 	_set_up_ball(0.0, 0.0)
 	camera_y = camera.translation.y
 	
+	var player = AudioStreamPlayer.new()
+	self.add_child(player)
+	player.stream = load("res://Music/Lobo Loco.wav")
+	player.play()
+	
 func _physics_process(delta):
 	camera.translation = Vector3(ball.translation.x - 5, max(camera_y, ball.translation.y + 20), ball.translation.z)
 	camera.rotation_degrees.z = 60
