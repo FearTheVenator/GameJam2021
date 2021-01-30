@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.87451, 0.505882, 0.113725, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93305, 0 )
+script = ExtResource( 2 )
+
+[node name="Floor" type="RigidBody" parent="."]
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 7.82878, 0, 0, 0, 0.273327, 0, 0, 0, 6.71338, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Level Objects" type="Node" parent="."]
+
+[node name="Cube" type="RigidBody" parent="Level Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.18938, 1.71868, 0.296334 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level Objects/Cube"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level Objects/Cube/CollisionShape"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
