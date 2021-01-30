@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Algorithm",
+"language": "GDScript",
+"path": "res://src/algorithms/Algorithm.gd"
+}, {
+"base": "Algorithm",
+"class": "BinaryTree",
+"language": "GDScript",
+"path": "res://src/algorithms/BinaryTree.gd"
+}, {
+"base": "Reference",
+"class": "Cell",
+"language": "GDScript",
+"path": "res://src/Cell.gd"
+}, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "Algorithm",
+"class": "Eller",
+"language": "GDScript",
+"path": "res://src/algorithms/Eller.gd"
 }, {
 "base": "PanelContainer",
 "class": "GistItem",
@@ -24,16 +44,56 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/InvitationItem.gd"
 }, {
+"base": "Reference",
+"class": "Maze",
+"language": "GDScript",
+"path": "res://src/Maze.gd"
+}, {
+"base": "Node",
+"class": "MazeGenerator",
+"language": "GDScript",
+"path": "res://src/Maze Generator.gd"
+}, {
+"base": "Algorithm",
+"class": "Prim",
+"language": "GDScript",
+"path": "res://src/algorithms/Prim.gd"
+}, {
+"base": "Algorithm",
+"class": "RecursiveBacktracker",
+"language": "GDScript",
+"path": "res://src/algorithms/RecursiveBacktracker.gd"
+}, {
+"base": "Algorithm",
+"class": "RecursiveDivision",
+"language": "GDScript",
+"path": "res://src/algorithms/RecursiveDivision.gd"
+}, {
 "base": "PanelContainer",
 "class": "RepositoryItem",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://src/algorithms/Utils.gd"
 } ]
 _global_script_class_icons={
+"Algorithm": "",
+"BinaryTree": "",
+"Cell": "",
 "ContributorClass": "",
+"Eller": "",
 "GistItem": "",
 "InvitationItem": "",
-"RepositoryItem": ""
+"Maze": "",
+"MazeGenerator": "",
+"Prim": "",
+"RecursiveBacktracker": "",
+"RecursiveDivision": "",
+"RepositoryItem": "",
+"Utils": ""
 }
 
 [application]
