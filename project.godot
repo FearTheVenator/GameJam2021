@@ -99,7 +99,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Gamejam2021"
-run/main_scene="res://Scenes/Demo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
