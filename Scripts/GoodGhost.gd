@@ -23,6 +23,8 @@ func get_input():
 		input_dir += -camera.global_transform.basis.x
 	if Input.is_action_pressed("ui_right"):
 		input_dir += camera.global_transform.basis.x
+	if Input.is_action_just_pressed("ui_select"):
+		input_dir += camera.global_transform.basis.y
 	input_dir = input_dir.normalized()
 	return input_dir
 		
