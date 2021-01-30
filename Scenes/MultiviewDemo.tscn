@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Maze Generator.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Demo.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=3]
+[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=4]
+
+[node name="Maze" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246563, 0 )
+script = ExtResource( 2 )
+
+[node name="MazeGenerator" type="Node" parent="."]
+script = ExtResource( 1 )
+algorithm = 4
+
+[node name="Camera" type="Camera" parent="."]
+fov = 1.0
+size = 6.5984
+
+[node name="PanelContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -114.0
+margin_bottom = 61.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PanelContainer"]
+margin_top = 30.0
+margin_right = 84.0
+margin_bottom = 61.0
+text = "AWSD- Move
+SPACE - Jump"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Node/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Node/HBoxContainer/ViewportContainer"]
+size = Vector2( 510, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="KinematicBody" parent="Node/HBoxContainer/ViewportContainer/Viewport" instance=ExtResource( 4 )]
+transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0.210127, 5.90767, 0 )
+script = ExtResource( 3 )
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="Node/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Node/HBoxContainer/ViewportContainer2"]
+size = Vector2( 510, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Node/HBoxContainer/ViewportContainer2/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.126528, 0.991963, 0, -0.991963, 0.126528, 6.09866, 41.9556, 14.8709 )
