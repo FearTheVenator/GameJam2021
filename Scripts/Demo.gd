@@ -2,7 +2,7 @@ extends Spatial
 
 const Wall = preload("res://Maze Assets/Wall.tscn")
 const Floor = preload("res://Maze Assets/Floor.tscn")
-const Ball = preload("res://Player Assets/GoodGhost.tscn")
+#const Ball = preload("res://Player Assets/Human.tscn")
 #const Ball = preload("res://Maze Assets/Ball.tscn")
 
 #onready var camera = $kinematicBody/Pivot/Camera
@@ -12,8 +12,8 @@ var ball: Node
 
 func _ready():
 	_build_maze(3.0, 0.0)
-	_set_up_ball(0.0, 0.0)
-	camera_y = camera.translation.y
+	#_set_up_ball(0.0, 0.0)
+	#camera_y = camera.translation.y
 	
 	var player = AudioStreamPlayer.new()
 	self.add_child(player)
@@ -21,9 +21,9 @@ func _ready():
 	player.play()
 	
 func _physics_process(delta):
-	camera.translation = Vector3(ball.translation.x - 5, max(camera_y, ball.translation.y + 20), ball.translation.z)
-	camera.rotation_degrees.z = 60
-	
+	#camera.translation = Vector3(ball.translation.x - 5, max(camera_y, ball.translation.y + 20), ball.translation.z)
+	#camera.rotation_degrees.z = 60
+	pass
 func _build_maze(cell_size: float, offset: float) -> void:
 	var maze = $MazeGenerator.generate_maze()
 	for row in maze.number_rows:
@@ -60,7 +60,7 @@ func _spawn_wall(x: float, z: float, rotate_y: float, cell_size: float):
 	wall.height = 5
 	add_child(wall)
 
-func _set_up_ball(x: float, z: float):
-	ball = Ball.instance()
-	ball.translate(Vector3.UP * 5)
-	add_child(ball)
+#func _set_up_ball(x: float, z: float):
+	#ball = Ball.instance()
+	#ball.translate(Vector3.UP * 5)
+	#add_child(ball)
