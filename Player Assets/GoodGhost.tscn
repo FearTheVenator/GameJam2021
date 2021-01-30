@@ -3,6 +3,8 @@
 [ext_resource path="res://Scenes/ghost.tscn" type="PackedScene" id=1]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 1.20834
+height = 0.820441
 
 [node name="KinematicBody" type="KinematicBody"]
 transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0, 0, 0 )
@@ -17,7 +19,7 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 4.24
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Pivot"]
-transform = Transform( -1, 0, 3.42727e-07, 0, 1, 0, -3.39001e-07, 0, -1, 0.0492768, 0.632936, 1.22157 )
+transform = Transform( -1, 0, 3.57628e-07, 0, 1, 0, -3.53903e-07, 0, -1, 0.0453499, 0.632936, 1.12422 )
 
 [node name="flashlight" type="SpotLight" parent="Pivot/Camera"]
 light_energy = 1.34

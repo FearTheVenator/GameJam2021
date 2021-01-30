@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lobo Loco.ogg-5b86eef283a2007fae9baf178b2163e1.oggstr"
+
+[deps]
+
+source_file="res://Music/Lobo Loco.ogg"
+dest_files=[ "res://.import/Lobo Loco.ogg-5b86eef283a2007fae9baf178b2163e1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
