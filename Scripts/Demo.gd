@@ -17,7 +17,7 @@ func _ready():
 	
 	var player = AudioStreamPlayer.new()
 	self.add_child(player)
-	player.stream = load("res://Music/Lobo Loco.wav")
+	player.stream = load("res://Music/Lobo Loco.ogg")
 	player.play()
 	
 func _physics_process(delta):
