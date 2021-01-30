@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=1]
-[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -28,9 +28,9 @@ transform = Transform( 7.82878, 0, 0, 0, 0.273327, 0, 0, 0, 6.71338, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="KinematicBody" parent="." instance=ExtResource( 2 )]
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93305, 0 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Cube" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.18938, 1.71868, 0.296334 )
