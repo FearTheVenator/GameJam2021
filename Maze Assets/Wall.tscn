@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Textures/ball_tex2.png" type="Texture" id=1]
+[ext_resource path="res://Maze Assets/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maze Assets/Fire Cone.glb" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.556863, 0.215686, 0.215686, 1 )
@@ -10,3 +12,17 @@ albedo_texture = ExtResource( 1 )
 use_collision = true
 depth = 0.23612
 material = SubResource( 1 )
+
+[node name="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.328084, 0, 0, 0, 0.834533, 0, 0, 0, 0.125322, -0.0708753, 0.244339, 0.246275 )
+
+[node name="Fire Cone" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.116947, -0.0465149, -0.0134488, 0.032509, 0.101482, -0.0683049, 0.0358842, 0.0596554, 0.10571, -0.0198983, -0.0296753, 0.0723464 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0658332, 0.416781, 1.05604 )
+light_color = Color( 0.976471, 0.796078, 0.584314, 1 )
+light_energy = 10.0
+light_specular = 1.0
+spot_range = 1.29656
+spot_angle = 37.9688
