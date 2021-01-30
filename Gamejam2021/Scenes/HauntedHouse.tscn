@@ -16,6 +16,10 @@ albedo_color = Color( 0.87451, 0.505882, 0.113725, 1 )
 
 [node name="Spatial" type="Spatial"]
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93305, 0 )
+script = ExtResource( 2 )
+
 [node name="Floor" type="RigidBody" parent="."]
 mode = 1
 
@@ -39,7 +43,3 @@ shape = SubResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="Level Objects/Cube/CollisionShape"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
-
-[node name="Player" parent="Level Objects" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93305, 0 )
-script = ExtResource( 2 )
