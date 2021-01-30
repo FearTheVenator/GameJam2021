@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.745098, 0.972549, 0.619608, 1 )
 
 [sub_resource type="BoxShape" id=3]
 
@@ -30,7 +33,7 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="Floor/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 6 )
 
 [node name="Level Objects" type="Node" parent="."]
 
@@ -43,3 +46,11 @@ shape = SubResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="Level Objects/Cube/CollisionShape"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
+
+[node name="Light-up" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.290368, -0.956915, 0, 0.956915, 0.290368, 0, 2.75745, 4.81869 )
+visible = false
+
+[node name="Light-down" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.792875, 0.609384, 0, -0.609384, 0.792875, 0, 5.81635, 4.62164 )
+shadow_enabled = true
