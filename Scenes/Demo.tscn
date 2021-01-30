@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Demo.gd" type="Script" id=1]
 [ext_resource path="res://src/Maze Generator.gd" type="Script" id=2]
 [ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/SOUL.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -14,37 +15,18 @@ background_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246563, 0 )
 script = ExtResource( 1 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0, 4.85133, 0 )
-script = ExtResource( 4 )
-
 [node name="MazeGenerator" type="Node" parent="."]
 script = ExtResource( 2 )
 algorithm = 4
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.759345, -0.627544, -0.172002, -0.0671647, -0.338519, 0.938559, -0.647213, -0.701138, -0.299201, 0, 1.95171, 0.455009 )
-visible = false
-fov = 48.0194
-size = 6.5984
+[node name="GUI" parent="." instance=ExtResource( 6 )]
 
-[node name="PanelContainer" type="MarginContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -114.0
-margin_bottom = 61.0
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-
-[node name="Label" type="Label" parent="PanelContainer"]
-margin_top = 30.0
-margin_right = 84.0
-margin_bottom = 61.0
-text = "AWSD- Move
-SPACE - Jump"
+[node name="KinematicBody" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0, 4.85133, 0 )
+script = ExtResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
 [node name="SOUL" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.357993, 0, 0.933724, 0, 1, 0, -0.933724, 0, 0.357993, -0.351674, 2.34987, 1.25409 )
+transform = Transform( -0.997062, 0, 0.076597, 0, 1, 0, -0.076597, 0, -0.997062, -0.351674, 4.58167, 7.83668 )

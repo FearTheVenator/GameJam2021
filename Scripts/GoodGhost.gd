@@ -11,10 +11,11 @@ const DE_ACCELERATION = 5
 var player = AudioStreamPlayer.new()
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Plays footsteps
 	self.add_child(player)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player.stream = load("res://Music/Footstep.ogg")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	player.volume_db = 0.01	
 	#camera = get_node("../Camera").get_global_transform()
 func get_input():
 	var input_dir = Vector3()
@@ -47,23 +48,24 @@ func _physics_process(delta):
 
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
+	
 	if velocity != Vector3():
-		if is_network_master():
+#		if is_network_master():
 			velocity = move_and_slide(velocity, Vector3.UP, true)
-		rpc_unreliable("_set_position", global_transform.origin)
+#		rpc_unreliable("_set_position", global_transform.origin)
 func _unhandled_input(event):
-	if is_network_master():
+#	if is_network_master():
 		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			rotate_y(-event.relative.x * mouse_sensitivity)
 			$Pivot.rotate_x(event.relative.y * mouse_sensitivity)
 			$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 func _input(event):
-	if is_network_master():
+#	if is_network_master():
 		if event.is_action_pressed("ui_cancel"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if event.is_action_pressed("shoot"):
 			if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-remote func _set_position(pos):
-	global_transform.origin = pos
+#remote func _set_position(pos):
+#	global_transform.origin = pos
 	

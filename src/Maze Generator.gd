@@ -13,6 +13,7 @@ Inspired on https://assetstore.unity.com/packages/tools/modeling/maze-generator-
 You are welcome to contribute in https://github.com/jvcoutinho/Maze-Generator.
 """
 
+
 enum MazeGenerationAlgorithm { RECURSIVE_BACKTRACKER, RECURSIVE_DIVISION, ELLER, PRIM, BINARY_TREE }
 
 export(MazeGenerationAlgorithm) var algorithm = MazeGenerationAlgorithm.RECURSIVE_BACKTRACKER
