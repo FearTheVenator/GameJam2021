@@ -17,4 +17,4 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 4.24
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Pivot"]
-transform = Transform( -1, 0, 3.42727e-07, 0, 1, 0, -3.39001e-07, 0, -1, 0.0492768, 0.632936, 1.22157 )
+transform = Transform( -1, 0, -3.241e-07, 0, 1, 0, 3.241e-07, 0, -1, 0.0461711, 0.706071, 1.20745 )
