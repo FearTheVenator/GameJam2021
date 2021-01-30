@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Player Assets/BsoulAI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player Assets/GsoulAI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player Assets/ghost.glb" type="PackedScene" id=3]
-[ext_resource path="res://Player Assets/ghost.gd" type="Script" id=4]
+[ext_resource path="res://AI assets/BsoulAI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://AI assets/GsoulAI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=4]
 
-[sub_resource type="NavigationMesh" id=6]
+[sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( 4, 3.5, -11, 7, 3.5, -12, 7, 3.5, -14, -4, 3.5, -14, -14, 3.5, 7, -14, 3.5, 14, -11, 3.5, 14, -9, 3.5, 10, -10, 3.5, 6, -4, 3.5, -14, -14, 3.5, -14, -14, 3.5, -7, 4, 3.5, -8, 4, 3.5, -11, -4, 3.5, -14, 3, 3.5, -1, 6, 3.5, -7, 4, 3.5, -8, -2, 3.5, -1, -14, 3.5, -9.53674e-07, -14, 3.5, 7, -10, 3.5, 6, -5, 3.5, 6, -1, 3.5, 3, -2, 3.5, -1, -10, 3.5, 6, -14, 3.5, -9.53674e-07, -10, 3.5, 6, -2, 3.5, -1, 4, 3.5, -8, -4, 3.5, -14, -14, 3.5, -7, 7, 3.5, -14, 7, 3.5, -12, 9, 3.5, -11, 14, 3.5, -14, 7, 3.5, 14, 14, 3.5, 14, 14, 3.5, 7, -6, 3.5, 10, -9, 3.5, 10, -11, 3.5, 14, 0.999999, 3.5, 14, 14, 3.5, -7, 14, 3.5, -14, 9, 3.5, -11, 9, 3.5, -8, 6, 3.5, -7, 3, 3.5, -1, 2, 3.5, 3, 2, 3.5, 3, -1, 3.5, 3, -5, 3.5, 6, -6, 3.5, 10, 0.999999, 3.5, 14, 14, 3.5, -7, 9, 3.5, -8, 6, 3.5, -7, 14, 3.5, -9.53674e-07, 2, 3.5, 3, 0.999999, 3.5, 14, 7, 3.5, 14, 14, 3.5, 7, 14, 3.5, -9.53674e-07, 6, 3.5, -7 )
 polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 6, 5, 7 ), PoolIntArray( 7, 5, 4 ), PoolIntArray( 7, 4, 8 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 21, 20, 19 ), PoolIntArray( 23, 22, 24 ), PoolIntArray( 24, 22, 25 ), PoolIntArray( 26, 31, 27 ), PoolIntArray( 27, 31, 28 ), PoolIntArray( 28, 31, 30 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 35 ), PoolIntArray( 38, 37, 36 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 42 ), PoolIntArray( 46, 45, 43 ), PoolIntArray( 43, 45, 44 ), PoolIntArray( 49, 48, 47 ), PoolIntArray( 51, 50, 52 ), PoolIntArray( 52, 50, 53 ), PoolIntArray( 53, 50, 54 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 60, 59, 61 ), PoolIntArray( 61, 59, 62 ), PoolIntArray( 62, 59, 63 ), PoolIntArray( 63, 59, 64 ) ]
 cell/size = 1.0
@@ -13,18 +13,18 @@ cell/height = 1.5
 agent/height = 3.0
 agent/radius = 1.0
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=2]
 size = Vector3( 30, 2, 30 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.278431, 0.270588, 0.270588, 1 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 15, 1, 15 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=5]
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=6]
 
 [node name="Spatial" type="Spatial"]
 
@@ -38,46 +38,46 @@ fov = 102.554
 [node name="Navigation" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 6 )
+navmesh = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/MeshInstance/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41816, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/MeshInstance2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/MeshInstance2/StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66952, 1.41816, 7.30291 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/MeshInstance3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/MeshInstance3/StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55351, 1.41816, -9.57376 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/MeshInstance4"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/MeshInstance4/StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="BadSoul" parent="Navigation" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41332, 3.8501, 0 )
@@ -85,6 +85,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41332, 3.8501, 0 )
 [node name="good soul" parent="Navigation" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67665, 4.0319, 0 )
 
-[node name="ghost" parent="Navigation" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06601, 7.54268 )
+[node name="Good Ghost" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( -0.998656, 0, -0.0518303, 0, 1, 0, 0.0518303, 0, -0.998656, 0, 2.2727, 10.8541 )
 script = ExtResource( 4 )

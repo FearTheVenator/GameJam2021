@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Player Assets/Timer.gd" type="Script" id=1]
+[ext_resource path="res://AI assets/BsoulAI.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
 
 [node name="BadSoul" type="KinematicBody"]
+script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
@@ -15,4 +16,4 @@ material/0 = null
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-script = ExtResource( 1 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
