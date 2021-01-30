@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleShape" id=1]
 
 [node name="KinematicBody" type="KinematicBody"]
+transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
@@ -14,7 +15,6 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 4.24907e-08, -0.260806 )
 
 [node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260806, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
-transform = Transform( -1, 8.4334e-08, -3.14739e-07, 0, 0.965926, 0.258819, 3.25841e-07, 0.258819, -0.965926, 0, 2, -3.599 )
+transform = Transform( -1, 0, 3.42727e-07, 0, 1, 0, -3.39001e-07, 0, -1, 0.0492768, 0.632936, 1.22157 )
