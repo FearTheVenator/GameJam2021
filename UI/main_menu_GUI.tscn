@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Ghostbumps.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/quit.gd" type="Script" id=2]
+[ext_resource path="res://UI/play_local.gd" type="Script" id=3]
+[ext_resource path="res://UI/play_online.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 28
 outline_size = 2
 outline_color = Color( 0.972549, 0.94902, 0.94902, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 5
 outline_color = Color( 0.117647, 0.0588235, 0.0588235, 1 )
 font_data = ExtResource( 1 )
 
-[node name="main_menu" type="Control"]
+[node name="main_menu_gui" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -41,43 +44,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button_local" type="Button" parent="Control/VBoxContainer"]
+[node name="play_local" type="Button" parent="Control/VBoxContainer"]
 margin_right = 221.0
 margin_bottom = 40.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 enabled_focus_mode = 0
 text = "PLAY -LOCAL-"
 flat = true
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button_local3" type="Button" parent="Control/VBoxContainer"]
+[node name="play_online" type="Button" parent="Control/VBoxContainer"]
 margin_top = 44.0
 margin_right = 221.0
 margin_bottom = 84.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 enabled_focus_mode = 0
 text = "PLAY -ONLINE-"
 flat = true
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button_local4" type="Button" parent="Control/VBoxContainer"]
+[node name="quit" type="Button" parent="Control/VBoxContainer"]
 margin_top = 88.0
 margin_right = 221.0
 margin_bottom = 128.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 enabled_focus_mode = 0
-text = "More"
+text = "Quit"
 flat = true
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -163,7 +169,7 @@ margin_left = -117.5
 margin_top = 25.1508
 margin_right = 117.5
 margin_bottom = 146.151
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.858824, 1, 0.929412, 1 )
 text = "2 GHOSTS
   1 SOUL"
@@ -189,3 +195,6 @@ text = "REGINA GAME JAM 2021 - LOST & FOUND"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="button_down" from="Control/VBoxContainer/play_local" to="Control/VBoxContainer/play_local" method="_on_play_local_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/play_online" to="Control/VBoxContainer/play_online" method="_on_play_online_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/quit" to="Control/VBoxContainer/quit" method="_on_quit_button_down"]

@@ -5,6 +5,6 @@
 
 [node name="main_menu" type="Spatial"]
 
-[node name="main_menu" parent="." instance=ExtResource( 2 )]
+[node name="main_menu_gui" parent="." instance=ExtResource( 2 )]
 
 [node name="main_menu_animated" parent="." instance=ExtResource( 1 )]
