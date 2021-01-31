@@ -10,6 +10,8 @@ const DE_ACCELERATION = 5
 
 func _ready():
 	 Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
 	#camera = get_node("../Camera").get_global_transform()
 func get_input():
 	var input_dir = Vector3()
@@ -27,7 +29,27 @@ func get_input():
 		#input_dir += camera.global_transform.basis.y
 	input_dir = input_dir.normalized()
 	return input_dir
-		
+	
+remote func _set_position(pos):
+	global_transform.origin = pos
+	
+
+func _unhandled_input(event):
+		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			#if is_network_master():
+				rotate_y(-event.relative.x * mouse_sensitivity)
+				$Pivot.rotate_x(event.relative.y * mouse_sensitivity)
+				$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		#if is_network_master():
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event.is_action_pressed("shoot"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			#if is_network_master():
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var desired_velocity = get_input() * SPEED
@@ -35,22 +57,6 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	if velocity != Vector3():
-		#if is_network_master():
+		if is_network_master():
 			velocity = move_and_slide(velocity, Vector3.UP, true)
-		#rpc_unreliable("_set_position", global_transform.origin)
-func _unhandled_input(event):
-	#if is_network_master():
-		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			rotate_y(-event.relative.x * mouse_sensitivity)
-			$Pivot.rotate_x(event.relative.y * mouse_sensitivity)
-			$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
-func _input(event):
-	#if is_network_master():
-		if event.is_action_pressed("ui_cancel"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		if event.is_action_pressed("shoot"):
-			if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-#remote func _set_position(pos):
-	#global_transform.origin = pos
-	
+			rpc_unreliable("_set_position", global_transform.origin)
