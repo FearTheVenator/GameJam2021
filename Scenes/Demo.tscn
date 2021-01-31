@@ -45,10 +45,10 @@ text = "AWSD- Move
 SPACE - Jump"
 
 [node name="Player1Pos" type="Position3D" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50997, 6.54018, 26.4785 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50997, 2.21852, 26.4785 )
 
 [node name="Player2Pos" type="Position3D" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02743, 8.18578, 4.59505 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02743, 2.35631, 4.59505 )
 
 [node name="Pathfinding" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.85, -0.915, 14.539 )
