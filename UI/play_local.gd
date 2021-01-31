@@ -7,5 +7,5 @@ func _ready():
 
 
 func _on_play_local_button_down():
-	get_tree().change_scene("Scenes/Demo.tscn")
+	get_tree().change_scene("Scenes/DemoLocal.tscn")
 	print("Playing local")
