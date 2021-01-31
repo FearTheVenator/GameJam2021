@@ -19,6 +19,9 @@ script = ExtResource( 3 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
 environment = SubResource( 1 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="Spatial/WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, -0.010978, 0.99994, 0, -0.99994, -0.010978, 13.3875, 40.4061, 23.2204 )
+
 [node name="MazeGenerator" type="Node" parent="Spatial"]
 script = ExtResource( 2 )
 algorithm = 4
@@ -42,7 +45,7 @@ text = "AWSD- Move
 SPACE - Jump"
 
 [node name="SOUL" parent="Spatial" instance=ExtResource( 5 )]
-transform = Transform( 0.310129, 0, 0.950695, 0, 1, 0, -0.950695, 0, 0.310129, 0, 0, 0 )
+transform = Transform( 0.990871, 0, -0.134816, 0, 1, 0, 0.134816, 0, 0.990871, 17.8855, 1.83156, 17.3836 )
 
 [node name="Player1Pos" type="Position3D" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5926, 16.3594, 18.3826 )
