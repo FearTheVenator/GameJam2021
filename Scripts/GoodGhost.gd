@@ -8,21 +8,35 @@ const SPEED = 6
 const ACCELERATION = 3
 const DE_ACCELERATION = 5
 
+var player = AudioStreamPlayer.new()
+
 func _ready():
-	 Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#camera = get_node("../Camera").get_global_transform()
+	# Footsteps sound effect setup
+	self.add_child(player)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	player.stream = load("res://Music/Footstep.ogg")
 func get_input():
 	var input_dir = Vector3()
 	# desired move in camera direction
 
 	if Input.is_action_pressed("ui_up"):
 		input_dir += -camera.global_transform.basis.z
+		if !player.playing:
+			player.play()
 	if Input.is_action_pressed("ui_down"):
 		input_dir += camera.global_transform.basis.z
+		if !player.playing:
+			player.play()
 	if Input.is_action_pressed("ui_left"):
 		input_dir += -camera.global_transform.basis.x
+		if !player.playing:
+			player.play()
 	if Input.is_action_pressed("ui_right"):
 		input_dir += camera.global_transform.basis.x
+		if !player.playing:
+			player.play()
 	#if Input.is_action_just_pressed("ui_select"):
 		#input_dir += camera.global_transform.basis.y
 	input_dir = input_dir.normalized()
