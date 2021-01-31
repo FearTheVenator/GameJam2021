@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/ghost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=2]
+[ext_resource path="res://Player Assets/flashlight.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.20834
@@ -70,3 +71,6 @@ explosiveness = 0.3
 randomness = 0.05
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )
+
+[node name="flashlight" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.273441, 0.0892625, 0.0852196, 0.0892623, -1.45427e-08, 0.286413, 0.0852198, 0.286413, -0.0265593, -0.81953, 0, 0.70911 )
