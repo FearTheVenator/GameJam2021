@@ -40,9 +40,11 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.690196, 0, 0.129412, 1 )
-proximity_fade_enable = true
-proximity_fade_distance = 3970.58
+flags_unshaded = true
+albedo_color = Color( 0.0627451, 0.0156863, 0.521569, 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 40.0
 
 [node name="SOUL" instance=ExtResource( 1 )]
 
@@ -51,10 +53,11 @@ material/0 = SubResource( 1 )
 
 [node name="outline" type="MeshInstance" parent="Soul Body" index="0"]
 transform = Transform( 1.05977, 0, 0, 0, 1.01195, 0, 0, 0, 1.07039, 0, 0, 0 )
+visible = false
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="outline2" type="MeshInstance" parent="Soul Body" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12916, 0, 0 )
+transform = Transform( 1.121, 0, 0, 0, 1.062, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
