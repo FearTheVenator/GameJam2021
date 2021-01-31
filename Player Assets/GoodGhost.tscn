@@ -43,7 +43,7 @@ radial_segments = 4
 rings = 1
 
 [node name="GoodGhost" type="KinematicBody"]
-transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 0, 0, 0 )
+transform = Transform( 0.999134, 0, -0.0415966, 0, 1, 0, 0.0415966, 0, 0.999134, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
