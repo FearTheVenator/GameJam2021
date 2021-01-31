@@ -2,7 +2,7 @@ extends KinematicBody
 
 var path =[]
 var path_node = 0
-var speed = 5
+var speed = 2.5
 #Gets the parent node: the kinematic soul
 onready var nav = get_parent()
 #This is the node that we are tracking it can be a player a cube a 3d position and so
