@@ -70,5 +70,6 @@ func _physics_process(delta):
 
 
 func _on_Area_area_shape_entered(area_id, area, area_shape, self_shape):
-	get_tree().change_scene("res://Scenes/VICTORY.tscn")
+	if area.name == "SoulArea":
+		get_tree().change_scene("res://Scenes/VICTORY.tscn")
 	
