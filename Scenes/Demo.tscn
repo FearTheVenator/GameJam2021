@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Demo.gd" type="Script" id=1]
 [ext_resource path="res://src/Maze Generator.gd" type="Script" id=2]
-[ext_resource path="res://Player Assets/GoodGhost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/GoodGhost.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/SOUL.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
@@ -14,33 +13,39 @@ background_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246563, 0 )
 script = ExtResource( 1 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.999187, 0, -0.0403061, 0, 1, 0, 0.0403061, 0, 0.999187, 8.11852, 11.9008, 2.38197 )
-script = ExtResource( 4 )
+[node name="Spatial" type="Spatial" parent="."]
+script = ExtResource( 3 )
 
-[node name="MazeGenerator" type="Node" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
+environment = SubResource( 1 )
+
+[node name="MazeGenerator" type="Node" parent="Spatial"]
 script = ExtResource( 2 )
 algorithm = 4
 
-[node name="PanelContainer" type="MarginContainer" parent="."]
+[node name="PanelContainer" type="MarginContainer" parent="Spatial"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -114.0
 margin_bottom = 61.0
 custom_constants/margin_right = 30
 custom_constants/margin_top = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="Spatial/PanelContainer"]
 margin_top = 30.0
 margin_right = 84.0
 margin_bottom = 61.0
 text = "AWSD- Move
 SPACE - Jump"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
-
-[node name="Camera" type="Camera" parent="."]
-
-[node name="SOUL" parent="." instance=ExtResource( 5 )]
+[node name="SOUL" parent="Spatial" instance=ExtResource( 5 )]
 transform = Transform( 0.310129, 0, 0.950695, 0, 1, 0, -0.950695, 0, 0.310129, 0, 0, 0 )
+
+[node name="Player1Pos" type="Position3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5926, 16.3594, 18.3826 )
+
+[node name="Player2Pos" type="Position3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8991, 25.0369, 33.5786 )
