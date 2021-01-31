@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/main_menu_animated.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/main_menu_GUI.tscn" type="PackedScene" id=2]
+
+[node name="main_menu" type="Spatial"]
+
+[node name="main_menu" parent="." instance=ExtResource( 2 )]
+
+[node name="main_menu_animated" parent="." instance=ExtResource( 1 )]
