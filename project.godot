@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gamejam2021"
-run/main_scene="res://Levels/Lobby.tscn"
+run/main_scene="res://UI/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

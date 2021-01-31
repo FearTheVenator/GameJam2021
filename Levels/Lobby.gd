@@ -4,6 +4,7 @@ func _ready():
 	get_tree().connect("network_peer_connected",self,"_player_connected")
 
 
+
 func _on_ButtonHost_pressed():
 	var net = NetworkedMultiplayerENet.new()
 	net.create_server(6969,2)
@@ -26,3 +27,8 @@ func _player_connected(id):
 func _on_LineEdit_text_changed(new_text):
 	IPAddress = new_text
 	print(str(IPAddress))
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("UI/main_menu.tscn")
+	print("Playing local")
