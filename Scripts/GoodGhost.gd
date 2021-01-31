@@ -50,13 +50,25 @@ func _input(event):
 			#if is_network_master():
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					
+func _check_if_soul():
+	var isSoul = $RayCast.get_collider()
+	#print(str(isSoul))
+	
+	
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var desired_velocity = get_input() * SPEED
-
+	_check_if_soul()
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	if velocity != Vector3():
-		if is_network_master():
+		#if is_network_master():
 			velocity = move_and_slide(velocity, Vector3.UP, true)
-			rpc_unreliable("_set_position", global_transform.origin)
+			#rpc_unreliable("_set_position", global_transform.origin)
+
+
+
+
+func _on_Area_area_shape_entered(area_id, area, area_shape, self_shape):
+	get_tree().change_scene("res://Scenes/VICTORY.tscn")
+	
