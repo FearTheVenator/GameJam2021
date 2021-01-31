@@ -36,35 +36,31 @@ remote func _set_position(pos):
 
 func _unhandled_input(event):
 		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			#if is_network_master():
+			if is_network_master():
 				rotate_y(-event.relative.x * mouse_sensitivity)
 				$Pivot.rotate_x(event.relative.y * mouse_sensitivity)
 				$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		#if is_network_master():
+		if is_network_master():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if event.is_action_pressed("shoot"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			#if is_network_master():
+			if is_network_master():
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					
-func _check_if_soul():
-	var isSoul = $RayCast.get_collider()
-	#print(str(isSoul))
 	
 	
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var desired_velocity = get_input() * SPEED
-	_check_if_soul()
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	if velocity != Vector3():
-		#if is_network_master():
+		if is_network_master():
 			velocity = move_and_slide(velocity, Vector3.UP, true)
-			#rpc_unreliable("_set_position", global_transform.origin)
+		rpc_unreliable("_set_position", global_transform.origin)
 
 
 

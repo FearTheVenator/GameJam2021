@@ -18,7 +18,7 @@ func _on_ButtonJoin_pressed():
 	
 func _player_connected(id):
 	Globals.player2id = id
-	var game = preload("res://Scenes/HauntedHouse.tscn").instance()
+	var game = preload("res://Scenes/Demo.tscn").instance()
 	get_tree().get_root().add_child(game)
 	hide()
 	
