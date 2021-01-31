@@ -16,11 +16,15 @@ You are welcome to contribute in https://github.com/jvcoutinho/Maze-Generator.
 enum MazeGenerationAlgorithm { RECURSIVE_BACKTRACKER, RECURSIVE_DIVISION, ELLER, PRIM, BINARY_TREE }
 
 export(MazeGenerationAlgorithm) var algorithm = MazeGenerationAlgorithm.RECURSIVE_BACKTRACKER
-export var seed_ : int = 255
+#export var seed_ : int = 255
+var rand = RandomNumberGenerator.new()
+
 export var number_of_rows : int = 10
 export var number_of_columns : int = 10
 
 func generate_maze() -> Maze:
+	rand.randomize()
+	var seed_ : int = rand.randi()	
 	seed(seed_)
 	return _get_algorithm().generate_maze(number_of_rows, number_of_columns)
 	
