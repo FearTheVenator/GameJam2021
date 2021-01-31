@@ -25,7 +25,7 @@ func _physics_process(delta):
 	#camera.rotation_degrees.z = 60
 	pass
 func _build_maze(cell_size: float, offset: float) -> void:
-	var maze = $MazeGenerator.generate_maze()
+	var maze = $Spatial/MazeGenerator.generate_maze()
 	for row in maze.number_rows:
 		for column in maze.number_columns:
 			var cell = maze.cell_at(row, column)
