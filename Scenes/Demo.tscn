@@ -1,48 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Demo.gd" type="Script" id=1]
 [ext_resource path="res://src/Maze Generator.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/SOUL.tscn" type="PackedScene" id=5]
-
-[sub_resource type="NavigationMesh" id=2]
-cell/size = 1.0
-cell/height = 1.5
-agent/height = 3.0
-agent/radius = 1.0
+[ext_resource path="res://Scenes/Pathfinding.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 
-[sub_resource type="SpatialMaterial" id=3]
-
-[sub_resource type="CubeMesh" id=4]
-material = SubResource( 3 )
-
-[sub_resource type="BoxShape" id=5]
-
 [node name="Maze" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246563, 0 )
 script = ExtResource( 1 )
 
-[node name="Navigation" type="Navigation" parent="."]
+[node name="Spatial" type="Spatial" parent="."]
 
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 2 )
-
-[node name="Spatial" type="Spatial" parent="Navigation/NavigationMeshInstance"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Navigation/NavigationMeshInstance/Spatial"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
 environment = SubResource( 1 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Navigation/NavigationMeshInstance/Spatial/WorldEnvironment"]
+[node name="DirectionalLight" type="DirectionalLight" parent="Spatial/WorldEnvironment"]
 transform = Transform( 1, 0, 0, 0, -0.010978, 0.99994, 0, -0.99994, -0.010978, 13.3875, 40.4061, 23.2204 )
 
-[node name="MazeGenerator" type="Node" parent="Navigation/NavigationMeshInstance/Spatial"]
+[node name="MazeGenerator" type="Node" parent="Spatial"]
 script = ExtResource( 2 )
 algorithm = 4
 
-[node name="PanelContainer" type="MarginContainer" parent="Navigation/NavigationMeshInstance/Spatial"]
+[node name="PanelContainer" type="MarginContainer" parent="Spatial"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -114.0
@@ -53,31 +35,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Navigation/NavigationMeshInstance/Spatial/PanelContainer"]
+[node name="Label" type="Label" parent="Spatial/PanelContainer"]
 margin_top = 30.0
 margin_right = 84.0
 margin_bottom = 61.0
 text = "AWSD- Move
 SPACE - Jump"
 
-[node name="Player1Pos" type="Position3D" parent="Navigation/NavigationMeshInstance/Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6049, 16.3594, 23.5196 )
+[node name="Player1Pos" type="Position3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4833, 16.3594, 23.5196 )
 
-[node name="Player2Pos" type="Position3D" parent="Navigation/NavigationMeshInstance/Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8991, 16.2702, 33.5786 )
+[node name="Player2Pos" type="Position3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8991, 16.2702, 7.98879 )
 
-[node name="SOUL" parent="Navigation" instance=ExtResource( 5 )]
-transform = Transform( 0.990871, 0, -0.134816, 0, 1, 0, 0.134816, 0, 0.990871, 17.8855, 1.83156, 19.4513 )
+[node name="Pathfinding" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.85, -0.915, 14.539 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 17.9194, 28.6862, 17.5187 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 20.4717, 29.3158, 15.1808 )
 
 [node name="Goal" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8021, 3.6094, 26.618 )
+transform = Transform( 0.56986, 0, 0, 0, 1, 0, 0, 0, 0.134076, 9.14014, 4.16115, 15.1194 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Goal"]
-mesh = SubResource( 4 )
-material/0 = null
+[node name="Goal2" type="StaticBody" parent="."]
+transform = Transform( 0.56986, 0, 0, 0, 1, 0, 0, 0, 0.134076, 25.1126, 4.16115, 4.32748 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Goal"]
-shape = SubResource( 5 )
+[node name="Goal3" type="StaticBody" parent="."]
+transform = Transform( 0.56986, 0, 0, 0, 1, 0, 0, 0, 0.134076, 25.1126, 4.16115, 24.3605 )
+
+[node name="Goal4" type="StaticBody" parent="."]
+transform = Transform( 0.56986, 0, 0, 0, 1, 0, 0, 0, 0.134076, 8.73476, 4.16115, 24.3605 )
